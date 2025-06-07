@@ -1,8 +1,15 @@
 const express = require('express');
 const axios = require('axios');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 5000;
+
+app.use(cors({
+  origin: "https://roaring-malasada-bb9355.netlify.app",
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
